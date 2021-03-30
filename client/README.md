@@ -1,3 +1,8 @@
+# Getting Started with Chrome Plugin Development
+- Basic Tutorial - https://developer.chrome.com/docs/extensions/mv3/getstarted/
+- Chrome API Reference - https://developer.chrome.com/docs/extensions/reference/ 
+- Debugging - https://developer.chrome.com/docs/extensions/mv3/tut_debugging/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

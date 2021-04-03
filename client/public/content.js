@@ -1,36 +1,35 @@
-chrome.runtime.onMessage.addListener(function(request, sender, callback) {
-    console.log("received message");
-    main();
-});
+console.log("I am called !!!!");
+main();
 
-//function main() {
-//  // eslint-disable-next-line no-undef
-//  const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
-//  // eslint-disable-next-line no-restricted-globals
-//  if (!location.ancestorOrigins.contains(extensionOrigin)) {
-//    // Fetch the local React index.html page
-//    // eslint-disable-next-line no-undef
-//    fetch(chrome.runtime.getURL('index.html') /*, options */)
-//      .then((response) => response.text())
-//      .then((html) => {
-//        const styleStashHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);
-//        // eslint-disable-next-line no-undef
-//        $(styleStashHTML).appendTo('body');
-//      })
-//      .catch((error) => {
-//        console.warn(error);
-//      });
-//  }
-//}
-//
-//window.addEventListener("message", function(event) {
-//  if (event.source !== window) return;
-//  onDidReceiveMessage(event);
-//});
-//
-//async function onDidReceiveMessage(event) {
-//  if (event.data.type && (event.data.type === "GET_EXTENSION_ID")) {
-//    window.postMessage({ type: "EXTENSION_ID_RESULT", extensionId: chrome.runtime.id }, "*");
-//  }
-//}
+async function main() {
+  // eslint-disable-next-line no-undef
+  const extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
+  // eslint-disable-next-line no-restricted-globals
+  if (!location.ancestorOrigins.contains(extensionOrigin)) {
+    // Fetch the local React index.html page
+    // eslint-disable-next-line no-undef
 
+    await fetch(chrome.runtime.getURL('index.html'))
+      .then((response) => response.text())
+      .then((html) => {
+        const indexHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);
+        // eslint-disable-next-line no-undef
+        // document.body.innerHTML = document.body.innerHTML + indexHTML;
+          console.log(indexHTML)
+          debugger;
+          $(indexHTML).appendTo('body');
+          // document.body.appendChild(createElementFromHTML(indexHTML))
+      })
+      .catch((error) => {
+        debugger;
+        console.warn(error);
+      });
+  }
+}
+
+function createElementFromHTML(htmlString) {
+    var div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
+    // Change this to div.childNodes to support multiple top-level nodes
+    return div;
+}

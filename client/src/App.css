@@ -5,6 +5,20 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  display: block;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+#root{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 500px;
+  width: 500px;
+  background-color: red;
+  z-index: 99999;
 }
 
 @media (prefers-reduced-motion: no-preference) {

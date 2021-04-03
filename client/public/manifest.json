@@ -11,23 +11,33 @@
   },
   "action": {
     "default_popup": "./popup.html",
-    "default_icon": {
-      "16": "./logo512.png",
-      "32": "./logo512.png",
-      "48": "./logo512.png",
-      "128": "./logo512.png"
+    "default_icon": "./logo512.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://en.wikipedia.org/*"],
+      "js": ["jquery.js", "content.js"],
+      "run_at": "document_end",
+      "all_frames": true
     }
-  },
-  "icons": {
-      "16": "./logo512.png",
-      "32": "./logo512.png",
-      "48": "./logo512.png",
-      "128": "./logo512.png"
-  },
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "index.html", "index_try.html", "/static/*" ],
+      "matches": [ "https://en.wikipedia.org/*" ]
+    }
+  ],
+  "host_permissions": [
+    "https://en.wikipedia.org/*",
+    "*://*/*"
+  ],
   "options_page": "options.html",
   "permissions": [
     "activeTab",
     "storage",
     "scripting"
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; style-src 'self' data: 'unsafe-inline'; script-src 'self';"
+  }
 }

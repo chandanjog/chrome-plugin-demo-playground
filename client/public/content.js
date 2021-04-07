@@ -9,7 +9,7 @@ async function main() {
     // Fetch the local React index.html page
     // eslint-disable-next-line no-undef
 
-    await fetch(chrome.runtime.getURL('index.html'))
+    await fetch(chrome.runtime.getURL('index_try.html'))
       .then((response) => response.text())
       .then((html) => {
         const indexHTML = html.replace(/\/static\//g, `${extensionOrigin}/static/`);

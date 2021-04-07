@@ -23,7 +23,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": [ "index.html", "index_try.html", "/static/*" ],
+      "resources": [ "index.html", "index_try.html", "try_me.js", "/static/*" ],
       "matches": [ "https://en.wikipedia.org/*" ]
     }
   ],

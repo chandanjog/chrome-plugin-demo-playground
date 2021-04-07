@@ -1,7 +1,0 @@
-- popup with "analyse page sentiment" button
-- content script only works for wikipedia articles
-- https://www.npmjs.com/package/html-to-text to pull out html
-    - document.querySelector('body').textContent
-- Get sentiment from http://text-processing.com/docs/sentiment.html and put in local storage
-- Revisiting the web page should not make a call and show from local storage
-- React component to show the score as a modal overlay.
